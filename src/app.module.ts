@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+// Módulo principal de la aplicación NestJS que importa y configura los módulos necesarios para la aplicación, incluyendo ConfigModule para cargar las variables de entorno desde el archivo de configuración, DatabaseModule para configurar las conexiones a la base de datos y UsersModule para manejar la lógica relacionada con los usuarios. También define el controlador y el servicio principal de la aplicación.
+
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -22,6 +24,12 @@ import config from './config';
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_PORT: Joi.number().required(),
         POSTGRES_HOST: Joi.string().required(),
+
+        MYSQL_DB: Joi.string().required(),
+        MYSQL_USER: Joi.string().required(),
+        MYSQL_PASSWORD: Joi.string().required(),
+        MYSQL_PORT: Joi.number().required(),
+        MYSQL_HOST: Joi.string().required(),
       }),
     }),
     DatabaseModule,
